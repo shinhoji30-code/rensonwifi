@@ -3,12 +3,9 @@
 <head>
   <title>Renson Ecopark WiFi Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="google-adsense-account" content="ca-pub-8490044720475534">
 
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8490044720475534"
-crossorigin="anonymous"></script>
+  $(if chap-id)
   <script src="/md5.js"></script>
-</script>
   <script>
     function doLogin() {
       document.sendin.username.value = document.login.username.value;
@@ -17,13 +14,23 @@ crossorigin="anonymous"></script>
       return false;
     }
   </script>
-
+  $(endif)
 </head>
 
 <body style="text-align:center;font-family:Arial;background:#f5f5f5;">
 
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8490044720475534"
-crossorigin="anonymous"></script>
+  <h2>Renson Ecopark WiFi</h2>
+  <p>Please login to connect</p>
+
+  <form name="login" action="$(link-login-only)" method="post" $(if chap-id) onsubmit="return doLogin()" $(endif)>
+    
+    <input type="text" name="username" placeholder="Username" required><br><br>
+
+    <input type="password" name="password" placeholder="Password"><br><br>
+
+    <input type="submit" value="CONNECT" style="padding:10px 20px;">
+
+  </form>
 
   <br>
 
