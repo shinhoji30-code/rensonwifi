@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Renson Ecopark WiFi Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  $(if chap-id)
+  <script src="/md5.js"></script>
+  <script>
+    function doLogin() {
+      document.sendin.username.value = document.login.username.value;
+      document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+      document.sendin.submit();
+      return false;
+    }
+  </script>
+  $(endif)
+</head>
+
+<body style="text-align:center;font-family:Arial;background:#f5f5f5;">
+
+  <h2>Renson Ecopark WiFi</h2>
+  <p>Please login to connect</p>
+
+  <form name="login" action="$(link-login-only)" method="post" $(if chap-id) onsubmit="return doLogin()" $(endif)>
+    
+    <input type="text" name="username" placeholder="Username" required><br><br>
+
+    <input type="password" name="password" placeholder="Password"><br><br>
+
+    <input type="submit" value="CONNECT" style="padding:10px 20px;">
+
+  </form>
+
+  <br>
+
+  <small>Powered by Renson Ecopark WiFi</small>
+
+</body>
+</html>
